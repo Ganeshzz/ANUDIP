@@ -1,0 +1,256 @@
+1. Create a class called circle . It contains: Two instance variables: radius (of the type double) and color (of the type String).One public methods: getArea(),simple Constructor  with default value of 1.0 and "red", and parameterized constructor.
+
+Input:
+
+public class Circle {//circle class
+	double radius ;
+	String color ;
+
+	public void getArea() {
+		radius=7.5;
+	    double area=3.14*radius*radius;
+		System.out.println("Radius of circle: "+radius );
+		System.out.println("Area of circle: "+area);
+	}
+	public void circle () {
+		System.out.println("================Default constructor================");
+		radius=1.0;
+		color="red ";
+		System.out.println("Radius of circle: "+radius );
+		System.out.println("Color of circle: "+color );
+	}
+	public void circle (double radius , String color) {
+		System.out.println("================parameterized constructor================");
+		System.out.println("Radius of circle: "+radius );
+		System.out.println("Color of circle: "+color );
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Circle a = new Circle ();
+		a.getArea();//calling getArea method
+		a.circle();//calling default constructor
+		a.circle(1.0, "red");//calling parameterized constructor
+	}
+
+}
+
+Output:
+Radius of circle: 7.5
+Area of circle: 176.625
+================Default constructor================
+Radius of circle: 1.0
+Color of circle: red 
+================parameterized constructor================
+Radius of circle: 1.0
+Color of circle: red
+
+===============================================================================================================================================================================
+
+2. Create a class GrandFather with methods name, property , physicalApperance. describe each properties of Grandfather in the class properly in the main method
+
+    create Father class extending GrandFather and decribe each properties of father deriving from Grandfather(use Override annotation) in the main method 
+
+create Son class extending Father and decribe each properties of a Son deriving from Father(use Override annotation) in the main method 
+
+Input:-
+
+public class GrandFather {
+
+public void name () {
+
+	String gfn="sayappa gutam";
+
+	System.out.println("My grand father name is "+gfn);
+
+}
+
+public void property () {
+
+	String prop="no property in mumbai ";
+
+	System.out.println("My grand father has  "+prop);
+
+}
+
+public void physicalApperance (double h,double w,String color) {
+
+	System.out.println("My grand father height "+h+"ft");
+	System.out.println("My grand father weight "+w+"kg");
+	System.out.println("My grand father has skin tone  "+color );
+
+
+	}
+	
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		GrandFather  a = new GrandFather  ();
+
+		a.name();
+
+		a.property();
+
+		a.physicalApperance(5.6,66,"brownshade");
+
+	}
+}
+output:
+My grand father name is sayappa gutam
+My grand father has  no property in mumbai 
+My grand father height 5.6ft
+My grand father weight 66.0kg
+My grand father has skin tone  brownshade
+===============================================================================================================================================================================
+
+public class Father extends  GrandFather {
+
+	@Override
+
+	public void name () {
+
+		String gfn="Ashappa sayappa gutam";
+
+		System.out.println("My  father name is "+gfn);
+
+	}
+
+	@Override
+
+	public void property () {
+
+		String prop=" property in mumbai ";
+
+		System.out.println("My  father has  "+prop);
+
+	}	
+
+	@Override
+	public void physicalApperance (double h,double w,String color) {
+
+		System.out.println("My father height "+h+"ft");
+		System.out.println("My father weight "+w+"kg");
+		System.out.println("My father has skin tone  "+color );
+
+
+	}
+
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		Father  a = new Father  ();
+
+		a.name();
+
+		a.property();
+
+		a.physicalApperance(5.6,66,"brownshade");
+
+
+
+	}
+
+
+
+}
+output:
+My  father name is Ashappa sayappa gutam
+My  father has   property in mumbai 
+My father height 5.6ft
+My father weight 66.0kg
+My father has skin tone  brownshade
+
+===============================================================================================================================================================================
+public class Son extends Father  {
+	@Override
+
+	public void name () {
+
+		String name=" Ganesh Ashappa gutam";
+
+		System.out.println("My  name is "+name);
+
+	}
+
+	@Override
+
+	public void property () {
+
+		String prop=" property in mumbai ";
+
+		System.out.println("I dont have any "+prop);
+
+	}	
+
+	@Override
+	public void physicalApperance (double h,double w,String color) {
+
+		System.out.println("My height is "+h+"ft");
+		System.out.println("My weight is "+w+"kg");
+		System.out.println("My  skin tone is  "+color );
+
+
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Son  a = new Son  ();
+
+		a.name();
+
+		a.property();
+
+		a.physicalApperance(5.10,66,"brownshade");
+	}
+
+}
+output:
+My  name is  Ganesh Ashappa gutam
+I dont have any  property in mumbai 
+My height is 5.1ft
+My weight is 66.0kg
+My  skin tone is  brownshade
+===============================================================================================================================================================================
+/*3. Demonstrate the example of Single, hierarchical inheritance using shapes as a base class.
+Input:Shape.java-->*/
+
+public class Shape {
+	public void details(String color) {
+        System.out.println("Color: " + color);
+        System.out.print("Shape: ");
+    }
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Shape shape=new Shape();
+		shape.details(null);//calling details method of shape class
+	}
+}
+
+public class Rectangle extends Shape{//Rectangle(derived class) class extends Shape class(base class)
+	@Override
+	public void details(String color) {//overrides details method from shape class
+		
+		 super.details(color);//calling details method from shape class(base class)
+		 double height=5,width=8;
+	        System.out.print("Rectangle \nHeight: " + height+"\nWidth: " + width +"\nArea: "+width*height);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Rectangle rect=new Rectangle();
+		rect.details("Blue");//calling details method of Rectangle class
+	
+		
+	}
+
+}
+output:
+Color: Blue
+Shape: Rectangle 
+Height: 5.0
+Width: 8.0
+Area: 40.0
